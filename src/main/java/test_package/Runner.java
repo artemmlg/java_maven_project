@@ -1,10 +1,18 @@
 package test_package;
 
 public class Runner {
+
+
     public static void main(String[] args) {
 
-        Parallelogram p = new Parallelogram(1,2,3);
-        Square s = new Square(2);
+        String sourceFile = "src/main/resources/shapes.properties";
+
+        PropertyReader prop = new PropertyReader(sourceFile);
+
+        Parallelogram p = new Parallelogram(Double.parseDouble(prop.getProperty("parallelogramA")),
+                Double.parseDouble(prop.getProperty("parallelogramB")),
+                Double.parseDouble(prop.getProperty("parallelogramH")));
+        Square s = new Square(Double.parseDouble(prop.getProperty("squareA")));
         System.out.println(p);
         System.out.println(s);
         System.out.println(p.area());

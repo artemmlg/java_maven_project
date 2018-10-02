@@ -1,8 +1,11 @@
 package test_package;
 
+import org.apache.log4j.Logger;
+
 public class Square extends Shape {
 
-    double a;
+    private static Logger logger = Logger.getLogger(Parallelogram.class);
+    private double a;
 
     public Square(double a) {
         this.a = a;
@@ -16,8 +19,9 @@ public class Square extends Shape {
         this.a = a;
     }
 
-    public double area(){
-        return a*a;
+    public double area() {
+        logger.info("Calculating parallelogram area");
+        return a * a;
     }
 
     @Override

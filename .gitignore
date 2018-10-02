@@ -1,7 +1,11 @@
-.idea
-target
+.idea/
+target/
 *.class
 *.war
 *.jar
 *.ear
 *.iml
+*.nar
+*.zip
+*.tar.gz
+*.rar
