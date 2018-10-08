@@ -5,7 +5,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        String sourceFile = "src/main/resources/shapes.properties";
+        ClassLoader classLoader = Runner.class.getClassLoader();
+        String sourceFile = classLoader.getResource("shapes.properties").getPath();
 
         PropertyReader prop = new PropertyReader(sourceFile);
 

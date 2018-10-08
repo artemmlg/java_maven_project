@@ -39,13 +39,14 @@ public class Parallelogram extends Shape {
         this.h = h;
     }
 
-    public double area(){
+    public double area() {
         logger.info("Calculating parallelogram area");
-        return a*h;
+        return a * h;
     }
 
     @Override
     public String toString() {
+        logger.debug("Calculating parallelogram area");
         return "Parallelogram{" +
                 "a=" + a +
                 ", b=" + b +
