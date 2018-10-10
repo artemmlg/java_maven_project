@@ -1,19 +1,17 @@
 package test_package;
 
-public class Runner {
+import org.aeonbits.owner.ConfigFactory;
 
+public class Runner {
+    private static AppProperties appProperties = ConfigFactory.create(AppProperties.class);
 
     public static void main(String[] args) {
+        Parallelogram p = new Parallelogram(
+                appProperties.parallelogramA(),
+                appProperties.parallelogramB(),
+                appProperties.parallelogramH());
 
-        ClassLoader classLoader = Runner.class.getClassLoader();
-        String sourceFile = classLoader.getResource("shapes.properties").getPath();
-
-        PropertyReader prop = new PropertyReader(sourceFile);
-
-        Parallelogram p = new Parallelogram(Double.parseDouble(prop.getProperty("parallelogramA")),
-                Double.parseDouble(prop.getProperty("parallelogramB")),
-                Double.parseDouble(prop.getProperty("parallelogramH")));
-        Square s = new Square(Double.parseDouble(prop.getProperty("squareA")));
+        Square s = new Square(appProperties.squareA());
         System.out.println(p);
         System.out.println(s);
         System.out.println(p.area());
